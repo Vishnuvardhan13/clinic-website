@@ -1,3 +1,5 @@
+"use client";
+
 const contactInfo = [
   { icon: "📞", label: "Phone", value: "+91 98765 43210", href: "tel:+919876543210" },
   { icon: "✉️", label: "Email", value: "clinic@smilecare.in", href: "mailto:clinic@smilecare.in" },
@@ -42,23 +44,8 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* ── Contact Cards ──────────────────────────────────────── */}
+      {/* ── WhatsApp + Form (moved UP) ─────────────────────────── */}
       <section className="section-pad max-w-7xl mx-auto">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-14">
-          {contactInfo.map(({ icon, label, value, href }) => (
-            <a
-              key={label}
-              href={href}
-              className="card p-7 text-center block group"
-            >
-              <div className="icon-box mx-auto mb-4 text-2xl group-hover:scale-110 transition-transform duration-200">{icon}</div>
-              <p className="section-label mb-1">{label}</p>
-              <p className="text-slate-700 font-semibold text-sm leading-relaxed">{value}</p>
-            </a>
-          ))}
-        </div>
-
-        {/* Main contact layout */}
         <div className="grid md:grid-cols-2 gap-10 items-start">
 
           {/* Left — WhatsApp CTA + Map placeholder */}
@@ -150,6 +137,26 @@ export default function Contact() {
               </button>
             </form>
           </div>
+        </div>
+      </section>
+
+      {/* ── Contact Info Cards (moved DOWN) ───────────────────── */}
+      <section
+        className="section-pad"
+        style={{ background: "linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%)" }}
+      >
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {contactInfo.map(({ icon, label, value, href }) => (
+            <a
+              key={label}
+              href={href}
+              className="card p-7 text-center block group"
+            >
+              <div className="icon-box mx-auto mb-4 text-2xl group-hover:scale-110 transition-transform duration-200">{icon}</div>
+              <p className="section-label mb-1">{label}</p>
+              <p className="text-slate-700 font-semibold text-sm leading-relaxed">{value}</p>
+            </a>
+          ))}
         </div>
       </section>
 
